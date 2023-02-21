@@ -52,5 +52,20 @@ describe("Assertions demo", () => {
     cy.get("input[placeholder='Username']").type("Admin");
     cy.get("input[placeholder='Password']").type("admin123");
     cy.get("button[type='submit']").click();
+
+    let expName = "Gigi Mamaladze";
+
+    cy.get(".oxd-userdropdown-name").then((Alfa) => {
+      let actName = Alfa.text();
+
+      //BDD style
+      expect(actName).to.equal(expName);
+
+      expect(actName).to.not.equal(expName);
+
+      //TDD style
+      assert.equal(actName, expName);
+      assert.notEqual(actName, expName);
+    });
   });
 });
