@@ -16,7 +16,7 @@ describe('Alerts', () => {
     });
 
     /*	2. JavaScript confirm alert: It will have some text with ok and cancel buttons
-  it.only  run jus this chunk of code */
+  it.only  run just this chunk of code */
     it('JS confirm alert ok button', () => {
         cy.visit('https://the-internet.herokuapp.com/javascript_alerts');
         cy.get("button[onclick='jsConfirm()']").click();
