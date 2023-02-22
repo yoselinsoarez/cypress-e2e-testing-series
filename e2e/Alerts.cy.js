@@ -14,7 +14,7 @@ describe("Alerts", () => {
 
   /*	2. JavaScript confirm alert: It will have some text with ok and cancel buttons
   it.only  run jus this chunk of code */
-  it.only("JS confirm alert ok button", () => {
+  it("JS confirm alert ok button", () => {
     cy.visit("https://the-internet.herokuapp.com/javascript_alerts");
     cy.get("button[onclick='jsConfirm()']").click();
     cy.on("window:confirm", (t) => {
@@ -22,5 +22,14 @@ describe("Alerts", () => {
     });
     //cypress automatically closed alert window by using ok button-default
     cy.get("#result").should("have.text", "You clicked: Ok");
+  });
+  it("JS confirm alert button cancel", () => {
+    cy.visit("https://the-internet.herokuapp.com/javascript_alerts");
+    cy.get("button[onclick='jsConfirm()']").click();
+    cy.on("window:confirm", (t) => {
+      expect(t).to.contains("I am a JS Confirm");
+    });
+    cy.on("window:confirm", () => false); //cypress closes alert window using cancel button
+    cy.get("#result").should("have.text", "You clicked: Cancel");
   });
 });
