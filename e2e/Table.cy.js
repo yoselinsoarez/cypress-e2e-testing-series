@@ -14,5 +14,13 @@ describe('Handle tables', () => {
         cy.get('#menu-customer>ul>li:first-child').click(); // customers sub/child item
     });
 
-    it('Check number rows and columns', () => {});
+    it('Check number rows and columns', () => {
+        cy.get(
+            "table[class='table table-bordered table-hover']>tbody>tr"
+        ).should('have.length', '10');
+        cy.get(
+            "table[class='table table-bordered table-hover']>thead>tr>td"
+        ).should('have.length', '7');
+    });
+    it('check cell data from specific row && column ');
 });
