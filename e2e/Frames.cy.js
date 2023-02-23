@@ -22,7 +22,7 @@ describe('handling frames', () => {
         cy.get("[aria-label='Bold']").click();
     });
 
-    it.only('approach2 by using cypress plugin', () => {
+    it.only('approach3 by using cypress plugin', () => {
         cy.visit('https://the-internet.herokuapp.com/iframe');
         cy.frameLoaded('#mce_0_ifr'); //Load the frame
         cy.iframe('#mce_0_ifr').clear().type('Learning cypress {ctrl+a}');
